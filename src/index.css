@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Thème : palette unie (sans dégradé)                                 */
+/* Les noms violet / cyan / etc. sont conservés pour ne pas casser     */
+/* les composants existants. Seules les valeurs ont changé.            */
+/* ------------------------------------------------------------------ */
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+
+  /* Fonds et bordures */
+  --color-night: #fff8f0;      /* fond de page : crème chaud */
+  --color-surface: #ffffff;    /* cartes */
+  --color-surface-2: #fdeee2;  /* champs, onglets, zones douces : pêche clair */
+  --color-line: #ecdfd1;       /* bordures */
+
+  /* Accents */
+  --color-violet: #ff5a36;     /* couleur principale : corail */
+  --color-cyan: #0f9d8a;       /* secondaire : turquoise */
+  --color-emerald: #16a34a;    /* succès */
+  --color-amber: #f5a524;      /* soleil : avertissements, badges */
+  --color-rose: #e5484d;       /* erreurs */
+
+  /* Texte */
+  --color-ink: #1f1d2b;        /* encre presque noire, légèrement violette */
+  --color-muted: #6e6a7c;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-night);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #ffd6c9;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-night);
+}
+::-webkit-scrollbar-thumb {
+  background: #e3cbb8;
+  border-radius: 999px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Classes utilitaires (couleurs unies, plus de dégradé)               */
+/* ------------------------------------------------------------------ */
+
+/* Mots mis en valeur : couleur unie */
+.text-gradient {
+  color: var(--color-violet);
+}
+
+/* Boutons et icônes principaux : couleur unie */
+.bg-gradient-brand {
+  background-color: var(--color-violet);
+}
+
+/* Carte blanche, bordure nette, léger décalage d'ombre */
+.glass {
+  background: #ffffff;
+  border: 1.5px solid var(--color-ink);
+  border-radius: 1.25rem;
+  box-shadow: 4px 4px 0 0 var(--color-ink);
+}
+
+/* Mise en avant : ombre colorée décalée */
+.glow {
+  box-shadow: 6px 6px 0 0 var(--color-violet);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s ease both;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
