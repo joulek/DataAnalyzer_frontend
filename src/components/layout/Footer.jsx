@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="mt-16 border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-sm text-muted sm:flex-row">
         <p>
-          © {new Date().getFullYear()}{' '}
+          © 2025 
           <span className="font-display font-semibold text-ink">
             Data<span className="text-gradient">Analyzer</span>
           </span>{' '}
